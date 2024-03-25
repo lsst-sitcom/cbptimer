@@ -57,7 +57,6 @@ dev = [
 Homepage = "https://github.com/lsst-sitcom/cbptimer"
 Documentation = "https://github.com/lsst-sitcom/cbptimer/blob/master/README.md"
 Repository = "https://github.com/lsst-sitcom/cbptimer"
-Changelog = "https://github.com/lsst-sitcom/cbptimer/blob/master/CHANGELOG.md"
 
 [project.scripts]
 cbptimer = "lsst.cbptimer.main:main"

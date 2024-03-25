@@ -67,3 +67,15 @@ cbptimer = "lsst.cbptimer.main:main"
 [tool.ruff]
 line-length = 110
 target-version = "py39"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D",        # completist docstrings decrease code readability
+    "ANN",      # type annotations (redundant with mypy)
+    "COM812",   # missing trailing comma (conflicts with ruff formatter)
+    "ISC001",   # single line implicit sctring concat (conflicts with ruff formatter)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]

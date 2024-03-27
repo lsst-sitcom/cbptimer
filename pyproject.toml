@@ -48,6 +48,7 @@ dynamic = ["version"]
 
 [project.optional-dependencies]
 dev = [
+    "build",
     "mypy",
     "ruff",
     "twine",

@@ -20,3 +20,6 @@ venv.bak/
 
 # ruff
 .ruff_cache/
+
+# package builds
+dist/

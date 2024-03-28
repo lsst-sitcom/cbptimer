@@ -37,7 +37,7 @@ def main() -> None:
     parser.add_argument(
         "--duration",
         type=int,
-        help="duration to monitor/log, in seconds (default: infinite)",
+        help="duration to monitor/log, in seconds (default: infinite; ^C or SIGINT to exit)",
     )
     parser.add_argument(
         "--outfile",
@@ -67,8 +67,10 @@ def main() -> None:
 
         # summarize to user what we're up to...
         edge_desc = "both rising and falling" if args.edge == "either" else args.edge
-        duration_desc = f" for {args.duration} seconds" if args.duration is not None else ""
-        print(f"Logging {edge_desc} edges to {f.name}{duration_desc}...")  # noqa: T201
+        duration_plural = "s" if args.duration != 1 else ""
+        duration_desc = f"for {args.duration} second{duration_plural}" if args.duration is not None else ""
+        exit_prompt = "(^C to exit)" if args.duration is None else ""
+        print(f"Logging {edge_desc} edges to {f.name} {duration_desc}{exit_prompt}...")  # noqa: T201
 
         # idle for requested duration or indefinitely...
         if args.duration is not None:
